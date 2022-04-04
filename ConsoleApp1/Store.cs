@@ -9,9 +9,9 @@ namespace ConsoleApp1
     public class Store
     {
         MethodClass obj = new MethodClass();
-        public Action<int,int,int> Add;
-        public void annoucement(string message,string cuntomer) {
-            Console.WriteLine("Attention plz : {0} {1}",message,cuntomer);
+        public Action<int, int, int> Add;
+        public void annoucement(string message, string cuntomer) {
+            Console.WriteLine("Attention plz : {0} {1}", message, cuntomer);
         }
 
         public delegate void Del(string message);
@@ -22,6 +22,17 @@ namespace ConsoleApp1
         public void DelegateImplement(Del del,string message)
         {
             del(message);
+        }
+
+        public void DelegateInitInImplement(Del del,string message)
+        {
+            del += InitImplement;
+            del(message);
+        }
+
+        void InitImplement(string message)
+        {
+            Console.WriteLine($"this from implementation with message : {message}");
         }
 
         public void StatDelegate()

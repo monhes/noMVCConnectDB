@@ -14,3 +14,5 @@ void printFromMain(string message)
 }
 
 store.DelegateImplement(printFromMain,"Main delegate");
+
+store.DelegateInitInImplement(printFromMain, "another call back from implement");
